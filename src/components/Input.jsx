@@ -1,5 +1,7 @@
 import React from "react";
 
+import { MdEdit } from "react-icons/md";
+
 const Input = ({ handleChange, handleClick, input, toggle, checked }) => {
 	const handleKeyPress = (e) => {
 		if (e.key === "Enter") {
@@ -17,7 +19,7 @@ const Input = ({ handleChange, handleClick, input, toggle, checked }) => {
 				placeholder="Write Something..."
 				value={input}
 				onChange={handleChange}
-				onKeyPress={handleKeyPress}
+				onKeyDown={handleKeyPress}
 			/>
 			<div>
 				<button
@@ -27,7 +29,13 @@ const Input = ({ handleChange, handleClick, input, toggle, checked }) => {
 					type="button"
 					onClick={handleClick}
 				>
-					{toggle ? "add" : "edit"}
+					{toggle ? (
+						<>
+							+ Add
+						</>
+					) : (
+						<MdEdit />
+					)}
 				</button>
 			</div>
 		</div>
